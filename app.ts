@@ -1,67 +1,16 @@
-// Objects
+// Union Types
+function combine(input1: number | string, input2: number | string) {
+  let result: any;
 
-const person = {
-  name: "Paul",
-  age: 20,
-};
-// console.log(person.age);
+  if (typeof input1 === "number" && typeof input2 === "number")
+    result = input1 + input2;
+  else result = input1.toString() + input2.toString();
 
-const person2: {
-  name: string;
-  age: number;
-} = {
-  name: "Paul",
-  age: 20,
-};
-// console.log(person2.name);
-
-// Arrays
-const person3 = {
-  name: "Paul",
-  age: 20,
-  hobbies: ["Sports", "Cooking"],
-};
-
-let favoriteActivities: string[];
-favoriteActivities = ["Sports"];
-
-// console.log(person3.hobbies);
-
-for (const hobby of person3.hobbies) {
-  //   console.log(hobby.toUpperCase());
+  return result;
 }
 
-// Tuple
-const person4: {
-  name: string;
-  age: number;
-  hobbies: string[];
-  role: [number, string];
-} = {
-  name: "Paul",
-  age: 20,
-  hobbies: ["Sports", "Coding"],
-  role: [2, "Programmer"],
-};
+const combineAge = combine(23, 10);
+console.log(combineAge);
 
-person4.role.push("admin");
-// this code below wont work, cause of not same type
-// person4.role[1] = 10;
-
-// console.log(person4.role);
-
-// Enums
-enum Role {
-  ADMIN,
-  READ_ONLY,
-  AUTHOR,
-}
-
-const person5 = {
-  name: "Paul",
-  age: 20,
-  role: Role.ADMIN,
-};
-
-if (person5.role === Role.ADMIN) console.log("is ADMIN");
-console.log(person5.role);
+const combineNames = combine("Paul ", "Fadayo");
+console.log(combineNames);
