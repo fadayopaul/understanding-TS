@@ -25,10 +25,10 @@ const person3 = {
 let favoriteActivities: string[];
 favoriteActivities = ["Sports"];
 
-console.log(person3.hobbies);
+// console.log(person3.hobbies);
 
 for (const hobby of person3.hobbies) {
-  console.log(hobby.toUpperCase());
+  //   console.log(hobby.toUpperCase());
 }
 
 // Tuple
@@ -45,6 +45,23 @@ const person4: {
 };
 
 person4.role.push("admin");
+// this code below wont work, cause of not same type
 // person4.role[1] = 10;
 
-console.log(person4.role);
+// console.log(person4.role);
+
+// Enums
+enum Role {
+  ADMIN,
+  READ_ONLY,
+  AUTHOR,
+}
+
+const person5 = {
+  name: "Paul",
+  age: 20,
+  role: Role.ADMIN,
+};
+
+if (person5.role === Role.ADMIN) console.log("is ADMIN");
+console.log(person5.role);
