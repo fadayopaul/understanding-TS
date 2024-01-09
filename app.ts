@@ -45,24 +45,26 @@ const literalNames = literal("Paul", " Fadayo", "as-text");
 // console.log(literalNames);
 
 // Type Aliases custom types
+// Type aliases can be used to "create" your own types.
+// You're not limited to storing union types though -
+// you can also provide an alias to a (possibly complex) object type.
 
 type combinable = number | string;
+type conversionDescriptor = "as-number" | "as-text";
 
 function literal2(
   input1: combinable,
   input2: combinable,
-  resultConversion: "as-number" | "as-text"
+  resultConversion: conversionDescriptor
 ) {
   let result: any;
 
   if (
     (typeof input1 === "number" && typeof input2 === "number") ||
     resultConversion === "as-number"
-  ) {
+  )
     result = +input1 + +input2;
-  } else {
-    result = input1.toString() + input2.toString();
-  }
+  else result = input1.toString() + input2.toString();
 
   return result;
 }
@@ -75,3 +77,22 @@ console.log(literalStringAge2);
 
 const literalNames2 = literal("Paul", " Ife", "as-text");
 console.log(literalNames2);
+
+// Additional example:
+type User = {
+  name: string;
+  age: number;
+};
+
+function greet(user: User) {
+  console.log("Hi, I am " + user.name);
+}
+
+function isOlder(user: User, checkAge: number) {
+  return checkAge > user.age;
+}
+
+const u1 = { name: "paul", age: 20 };
+
+greet(u1);
+console.log(isOlder(u1, 22));
