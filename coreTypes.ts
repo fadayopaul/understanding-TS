@@ -1,34 +1,32 @@
 // Objects
 
+/* In JS */
 const person = {
   name: "Paul",
   age: 20,
 };
 // console.log(person.age);
 
-const person2: {
-  name: string;
-  age: number;
-} = {
-  name: "Paul",
-  age: 20,
+/* In TS */
+const person2: { name: string; age: number } = {
+  name: "Ifeoluwa",
+  age: 22,
 };
 // console.log(person2.name);
 
 // Arrays
-const person3 = {
-  name: "Paul",
-  age: 20,
-  hobbies: ["Sports", "Cooking"],
+const person3: {
+  name: string;
+  age: number;
+  hobbies: string[];
+} = {
+  name: "PaulthaCreator",
+  age: 100,
+  hobbies: ["Coding", "Desgining"],
 };
 
-let favoriteActivities: string[];
-favoriteActivities = ["Sports"];
-
-// console.log(person3.hobbies);
-
 for (const hobby of person3.hobbies) {
-  //   console.log(hobby.toUpperCase());
+  console.log(hobby.toUpperCase());
 }
 
 // Tuple
@@ -63,5 +61,5 @@ const person5 = {
   role: Role.ADMIN,
 };
 
-if (person5.role === Role.ADMIN) console.log("is ADMIN");
-console.log(person5.role);
+// if (person5.role === Role.ADMIN) console.log("is ADMIN");
+// console.log(person5.role);
