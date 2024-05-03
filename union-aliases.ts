@@ -1,4 +1,6 @@
 // Union Types
+
+/* to be flexible with our types, parameters and out logics */
 function combine(input1: number | string, input2: number | string) {
   let result: any;
 
@@ -9,53 +11,19 @@ function combine(input1: number | string, input2: number | string) {
   return result;
 }
 
-const combineAge = combine(23, 10);
-// console.log(combineAge);
+const combinedAges = combine(30, 26);
+// console.log(combinedAges);
 
-const combineNames = combine("Paul ", "Fadayo");
-// console.log(combineNames);
+const combinedNames = combine("Paul", "ThaCreator");
+// console.log(combinedNames);
+
+/*---------------------------------------------------------------------*/
 
 // Literal Types
-function literal(
+function combine2(
   input1: number | string,
   input2: number | string,
   resultConversion: "as-number" | "as-text"
-) {
-  let result: any;
-
-  if (
-    (typeof input1 === "number" && typeof input2 === "number") ||
-    resultConversion === "as-number"
-  ) {
-    result = +input1 + +input2;
-  } else {
-    result = input1.toString() + input2.toString();
-  }
-
-  return result;
-}
-
-const literalAge = literal(23, 10, "as-number");
-// console.log(literalAge);
-
-const literalStringAge = literal("23", "10", "as-number");
-// console.log(literalStringAge);
-
-const literalNames = literal("Paul", " Fadayo", "as-text");
-// console.log(literalNames);
-
-// Type Aliases custom types
-// Type aliases can be used to "create" your own types.
-// You're not limited to storing union types though -
-// you can also provide an alias to a (possibly complex) object type.
-
-type combinable = number | string;
-type conversionDescriptor = "as-number" | "as-text";
-
-function literal2(
-  input1: combinable,
-  input2: combinable,
-  resultConversion: conversionDescriptor
 ) {
   let result: any;
 
@@ -69,30 +37,43 @@ function literal2(
   return result;
 }
 
-const literalAge2 = literal2(230, 100, "as-number");
-console.log(literalAge2);
+const combinedAges2 = combine2(30, 26, "as-number");
+// console.log(combinedAges);
 
-const literalStringAge2 = literal2("230", "100", "as-number");
-console.log(literalStringAge2);
+const combinedStringAges2 = combine2("30", "26", "as-number");
+// console.log(combinedStringAges2);
 
-const literalNames2 = literal("Paul", " Ife", "as-text");
-console.log(literalNames2);
+const combinedNames2 = combine2("Paul", "ThaCreator", "as-text");
+// console.log(combinedNames);
 
-// Additional example:
-type User = {
-  name: string;
-  age: number;
-};
+/*---------------------------------------------------------------------*/
 
-function greet(user: User) {
-  console.log("Hi, I am " + user.name);
+// Type aliases
+type Combinable = number | string;
+type ConversionDescriptor = "as-number" | "as-text";
+
+function combine3(
+  input1: Combinable,
+  input2: Combinable,
+  resultConversion: ConversionDescriptor
+) {
+  let result: any;
+
+  if (
+    (typeof input1 === "number" && typeof input2 === "number") ||
+    resultConversion === "as-number"
+  )
+    result = +input1 + +input2;
+  else result = input1.toString() + input2.toString();
+
+  return result;
 }
 
-function isOlder(user: User, checkAge: number) {
-  return checkAge > user.age;
-}
+const combinedAges3 = combine3(30, 26, "as-number");
+console.log(combinedAges);
 
-const u1 = { name: "paul", age: 20 };
+const combinedStringAge3 = combine3("30", "26", "as-number");
+console.log(combinedStringAges2);
 
-greet(u1);
-console.log(isOlder(u1, 22));
+const combinedNames3 = combine3("Paul", "ThaCreator", "as-text");
+console.log(combinedNames);
