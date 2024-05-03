@@ -1,13 +1,15 @@
+/*
+
 // Objects
 
-/* In JS */
+// In JS 
 const person = {
   name: "Paul",
   age: 20,
 };
 // console.log(person.age);
 
-/* In TS */
+// In TS 
 const person2: { name: string; age: number } = {
   name: "Ifeoluwa",
   age: 22,
@@ -67,3 +69,5 @@ const person5 = {
 
 console.log(person5.role);
 // if (person5.role === Role.ADMIN) console.log("is ADMIN");
+
+*/

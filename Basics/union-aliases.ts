@@ -1,6 +1,8 @@
+/* 
+
 // Union Types
 
-/* to be flexible with our types, parameters and out logics */
+//to be flexible with our types, parameters and out logics 
 function combine(input1: number | string, input2: number | string) {
   let result: any;
 
@@ -17,7 +19,7 @@ const combinedAges = combine(30, 26);
 const combinedNames = combine("Paul", "ThaCreator");
 // console.log(combinedNames);
 
-/*---------------------------------------------------------------------*/
+//---------------------------------------------------------------------
 
 // Literal Types
 function combine2(
@@ -46,7 +48,7 @@ const combinedStringAges2 = combine2("30", "26", "as-number");
 const combinedNames2 = combine2("Paul", "ThaCreator", "as-text");
 // console.log(combinedNames);
 
-/*---------------------------------------------------------------------*/
+//---------------------------------------------------------------------
 
 // Type aliases
 type Combinable = number | string;
@@ -58,7 +60,7 @@ function combine3(
   resultConversion: ConversionDescriptor
 ) {
   let result: any;
-
+  
   if (
     (typeof input1 === "number" && typeof input2 === "number") ||
     resultConversion === "as-number"
@@ -77,3 +79,5 @@ console.log(combinedStringAges2);
 
 const combinedNames3 = combine3("Paul", "ThaCreator", "as-text");
 console.log(combinedNames);
+
+  */
